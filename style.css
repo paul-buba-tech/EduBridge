@@ -1,0 +1,561 @@
+/* === Global Reset & Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0a1628;
+  color: #e0e8f0;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === Blue & Black Color Scheme with Different Shades of Blue === */
+:root {
+  --primary-black: #060b14;
+  --secondary-black: #0d1b33;
+  --deep-navy: #0a1929;
+  --midnight-blue: #0f2440;
+  --dark-blue: #132f4c;
+  --royal-blue: #1a3a6b;
+  --ocean-blue: #1e4d8c;
+  --accent-blue: #2196f3;
+  --accent-blue-light: #42a5f5;
+  --sky-blue: #64b5f6;
+  --light-blue: #90caf9;
+  --pale-blue: #bbdefb;
+  --text-light: #e3f2fd;
+  --text-muted: #90a4ae;
+  --border-subtle: #1e3a5f;
+  --card-blue: #102a43;
+  --hover-blue: #2c5f9e;
+}
+
+/* === Navbar (Fixed, doesn't scroll away) === */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, var(--primary-black), var(--deep-navy));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(33, 150, 243, 0.3);
+  border-bottom: 2px solid var(--accent-blue);
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar nav ul li a {
+  text-decoration: none;
+  color: var(--pale-blue);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  padding-bottom: 4px;
+}
+
+.navbar nav ul li a:hover {
+  color: var(--sky-blue);
+  border-bottom: 2px solid var(--sky-blue);
+  text-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
+}
+
+/* Buttons - close together and float right */
+.navbar button[type="submit"] {
+  background: linear-gradient(135deg, var(--royal-blue), var(--ocean-blue));
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  border: 1px solid var(--accent-blue);
+  float: right;
+  margin-left: 0.8rem;
+}
+
+.navbar button[type="submit"]:hover {
+  background: linear-gradient(135deg, var(--accent-blue), var(--sky-blue));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.5);
+}
+
+/* Hamburger Navigation Style */
+.navbar::before {
+  content: "☰";
+  display: none;
+  font-size: 2rem;
+  color: var(--sky-blue);
+  cursor: pointer;
+  margin-right: 1rem;
+  order: -1;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 1rem 1.5rem;
+  }
+
+  .navbar::before {
+    display: block;
+  }
+
+  .navbar nav {
+    width: 100%;
+    order: 3;
+  }
+
+  .navbar nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(180deg, var(--midnight-blue), var(--dark-blue));
+    margin-top: 1rem;
+    padding: 1rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--accent-blue);
+  }
+
+  .navbar:hover nav ul,
+  .navbar:focus-within nav ul {
+    display: flex;
+  }
+
+  .navbar nav ul li {
+    text-align: center;
+    padding: 0.8rem 0;
+  }
+
+  .navbar button[type="submit"] {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    margin-left: 0.4rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .navbar nav ul {
+    display: flex;
+  }
+}
+
+/* === Sections General === */
+section {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* === Home Section === */
+#home {
+  background: linear-gradient(135deg, #060b14 0%, #0d1b33 30%, #132f4c 70%, #1a3a6b 100%);
+  padding-top: 80px;
+  padding-bottom: 140px;
+  position: relative;
+}
+
+.homeBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.homeBodytext {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.homeBodytext h2 {
+  font-size: 3.2rem;
+  color: var(--pale-blue);
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 20px rgba(33, 150, 243, 0.6);
+}
+
+.homeBodytext h2 b {
+  color: var(--sky-blue);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--light-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.homeBodytext p {
+  font-size: 1.5rem;
+  color: var(--light-blue);
+}
+
+/* === Fixed Social Media & Footer Bar (Always visible at bottom) === */
+.socials {
+  background: linear-gradient(90deg, var(--primary-black), var(--deep-navy), var(--primary-black));
+  padding: 1rem 2rem;
+  width: 100%;
+  border-top: 3px solid var(--accent-blue);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  box-shadow: 0 -4px 20px rgba(33, 150, 243, 0.3);
+}
+
+.socials h4 {
+  color: var(--sky-blue);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Social media links - horizontal layout */
+.socials a {
+  display: inline-block;
+  color: var(--pale-blue);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.3rem 0;
+  white-space: nowrap;
+}
+
+.socials a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-blue);
+  transition: width 0.3s ease;
+}
+
+.socials a:hover {
+  color: var(--accent-blue-light);
+  text-shadow: 0 0 10px rgba(66, 165, 245, 0.5);
+}
+
+.socials a:hover::before {
+  width: 100%;
+}
+
+/* Separator between social links */
+.socials a:not(:last-child)::after {
+  content: "•";
+  position: absolute;
+  right: -1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-blue);
+  font-size: 1.2rem;
+}
+
+/* Footer text integrated with socials */
+.socials::after {
+  content: "EduBridge 2026";
+  display: block;
+  color: var(--sky-blue);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(100, 181, 246, 0.5);
+  white-space: nowrap;
+}
+
+/* Remove the separate body::after footer */
+body::after {
+  display: none;
+}
+
+/* Adjust all sections to account for fixed bottom bar */
+#aboutUs, #testimonials {
+  padding-bottom: 140px;
+}
+
+/* === About Us Section with Single Image === */
+#aboutUs {
+  background: linear-gradient(180deg, #0d1b33 0%, #0f2440 50%, #102a43 100%);
+}
+
+.aboutUs {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.aboutUs header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--sky-blue), var(--light-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: 100%;
+}
+
+.aboutUsLeftcol {
+  background: linear-gradient(145deg, var(--card-blue), var(--dark-blue));
+  padding: 2rem;
+  border-radius: 12px;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  width: 100%;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Single Image Container */
+.aboutUsRightcol {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--accent-blue);
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+  background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110fa0c?w=800');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay for better text readability */
+.aboutUsRightcol::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 58, 107, 0.4), rgba(15, 36, 64, 0.6));
+  z-index: 1;
+}
+
+/* Image text overlay */
+.aboutUsRightcol span {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Remove slideshow animation */
+.aboutUsRightcol::after {
+  display: none;
+}
+
+/* Remove slideshow keyframes */
+@keyframes slideshow {
+  /* Animation removed since we're using a single image */
+}
+
+/* About columns side by side on larger screens */
+@media screen and (min-width: 768px) {
+  .aboutUs {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .aboutUs header {
+    flex-basis: 100%;
+  }
+  
+  .aboutUsLeftcol {
+    flex: 1;
+    margin-bottom: 0;
+  }
+  
+  .aboutUsRightcol {
+    flex: 1;
+    height: 400px;
+  }
+}
+
+/* === Testimonials Section with Enlarge/Shrink Effect === */
+#testimonials {
+  background: linear-gradient(135deg, #0a1628 0%, #0d1b33 30%, #132f4c 100%);
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.testimonials header {
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, var(--accent-blue), var(--light-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.testimonialsCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.threeColLeft,
+.threeColMiddle,
+.threeColRight {
+  background: linear-gradient(145deg, var(--card-blue), var(--royal-blue));
+  padding: 2rem;
+  border-radius: 16px;
+  flex: 1 1 250px;
+  min-width: 220px;
+  box-shadow: 0 10px 25px rgba(33, 150, 243, 0.3);
+  border-top: 4px solid var(--accent-blue);
+  text-align: center;
+  color: var(--pale-blue);
+  font-weight: 500;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+/* The hover effect: Enlarge the hovered card and shrink others */
+.testimonialsCards:hover .threeColLeft,
+.testimonialsCards:hover .threeColMiddle,
+.testimonialsCards:hover .threeColRight {
+  transform: scale(0.9);
+  opacity: 0.7;
+  filter: blur(1px);
+}
+
+/* Enlarge the specific hovered card */
+.testimonialsCards .threeColLeft:hover,
+.testimonialsCards .threeColMiddle:hover,
+.testimonialsCards .threeColRight:hover {
+  transform: scale(1.15);
+  opacity: 1;
+  filter: blur(0);
+  z-index: 10;
+  border-top-color: var(--sky-blue);
+  box-shadow: 0 20px 40px rgba(33, 150, 243, 0.6);
+  background: linear-gradient(145deg, var(--ocean-blue), var(--accent-blue));
+}
+
+.threeColLeft span,
+.threeColMiddle span,
+.threeColRight span {
+  font-size: 1.2rem;
+  color: var(--sky-blue);
+  font-weight: 700;
+  transition: all 0.5s ease;
+}
+
+.threeColLeft:hover span,
+.threeColMiddle:hover span,
+.threeColRight:hover span {
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Ensure proper scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive adjustments for horizontal socials and footer */
+@media screen and (max-width: 768px) {
+  .socials {
+    padding: 0.8rem 1rem;
+    gap: 0.8rem;
+  }
+  
+  .socials h4 {
+    font-size: 0.85rem;
+  }
+  
+  .socials a {
+    font-size: 0.85rem;
+  }
+  
+  .socials a:not(:last-child)::after {
+    right: -0.6rem;
+    font-size: 1rem;
+  }
+  
+  .socials::after {
+    font-size: 1rem;
+  }
+  
+  #home, #aboutUs, #testimonials {
+    padding-bottom: 120px;
+  }
+  
+  .aboutUsRightcol {
+    height: 250px;
+  }
+}
